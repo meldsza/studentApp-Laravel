@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div>
             <div class="card">
-                <div class="card-header">$sem->name</div>
+                <div class="card-header">{{$sem->name}}</div>
                     <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead>
