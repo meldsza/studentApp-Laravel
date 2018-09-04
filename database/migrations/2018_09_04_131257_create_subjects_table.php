@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSemistersTable extends Migration
+class CreateSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateSemistersTable extends Migration
      */
     public function up()
     {
-        Schema::create('semisters', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('student_id');
-            $table->integer('subject_id');
-            $table->integer('sgpa');
-            $table->string('sem_name');
-            $table->boolean("is_complete")->default(false);
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->integer('credits');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateSemistersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('semisters');
+        Schema::dropIfExists('subjects');
     }
 }

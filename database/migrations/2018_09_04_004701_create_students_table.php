@@ -16,6 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('credits')->default(0);
             $table->float('cgpa',6,2);
             $table->timestamps();
         });

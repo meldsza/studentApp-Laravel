@@ -12,9 +12,7 @@
 */
 
 Route::middleware('auth')->group( function () {
-    Route::get('/',function(){
-        return view('welcome');
-    });
+    Route::redirect('/','/home');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
