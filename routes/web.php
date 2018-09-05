@@ -14,6 +14,8 @@
 Route::middleware('auth')->group( function () {
     Route::redirect('/','/home');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/marks/{id}', 'MarksController@get')->name('marks');
+    Route::get('/marks/{id}', 'MarksController@post');
 });
 
 Auth::routes();
