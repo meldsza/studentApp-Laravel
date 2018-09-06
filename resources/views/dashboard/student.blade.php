@@ -27,7 +27,7 @@
         <div class="card-header">{{$sem->sem_name}}</div>
             <div class="card-body">
             <div class="d-flex">
-            SGPA : {{$sem->sgpa}} <div class="ml-auto"><a href="/marks/{{$sem->id}}" class="btn btn-primary">View Marks</a></div>
+            SGPA : {{$sem->sgpa}} <div class="ml-auto"><a href="/semister/{{$sem->id}}" class="btn btn-primary">View Marks</a></div>
             </div>
         </div>
     </div>

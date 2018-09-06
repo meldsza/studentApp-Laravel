@@ -16,13 +16,13 @@ class CreateMarksTable extends Migration
         Schema::create('marks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('semister_id');
-            $table->string('sub_name');
-            $table->float('task_1',6,2);
-            $table->float('mse_1',6,2);
-            $table->float('task_2',6,2);
-            $table->float('mse_2',6,2);
-            $table->float('task_3',6,2);
-            $table->float('see',6,2);
+            $table->string('subject_id');
+            $table->float('task_1',6,2)->nullable();
+            $table->float('mse_1',6,2)->nullable();
+            $table->float('task_2',6,2)->nullable();
+            $table->float('mse_2',6,2)->nullable();
+            $table->float('task_3',6,2)->nullable();
+            $table->float('see',6,2)->nullable();
             //$table->timestamps();
         });
     }

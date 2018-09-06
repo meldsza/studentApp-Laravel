@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Marks extends Model
 {
     public $timestamps = false;
+
     protected $fillable = [
         'semister_id','subject_id','task_1','mse_1', 'task_2','mse_2', 'task_3','see'
     ];
@@ -16,6 +17,6 @@ class Marks extends Model
     }
     public function subject()
     {
-        return $this->belongsTo('App\Subject');
+        return $this->hasOne('App\Subject','id','subject_id');
     }
 }

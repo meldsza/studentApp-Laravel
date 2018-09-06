@@ -17,23 +17,23 @@ class MarksController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the Marks.
      *
      * @return \Illuminate\Http\Response
      */
-    public function get($id)
+    public function get(Semister $sem)
     {
-        $marks = Semister::get($id);
-        return view('dashboard/marks/view',['user'=>Auth::user(),'marks'=>$marks]);
+        $user = Auth::user();
+        $editable = ($user->is_teacher || $user->is_admin);
+        return view('marks',['user'=>Auth::user(),'sem'=>$sem->load('marks.subject'),'editable'=>$editable]);
     }
 
-    public function post(Request $request, $id)
+    public function post(Request $request, Semister $marks)
     {
-        $sem_marks = Semister::get($id);
-        //add stuff
-        $sem_marks = Semister::get($id);
-        return view('dashboard/marks/view',['user'=>Auth::user(),'marks'=>$marks]);
+        $request->input('');
+        $user = Auth::user();
+        if(!$user->is_teacher && !$user->is_admin) return error(404);
+        return view('marks',['user'=>Auth::user(),'sem'=>$sem->load('marks.subject'),'editable'=>true]);
     }
 }

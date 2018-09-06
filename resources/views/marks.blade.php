@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div>
             <div class="card">
-                <div class="card-header">{{$sem->name}}</div>
+                <div class="card-header">{{$sem->sem_name}}</div>
                     <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($marksheet as $marks)
+                        @foreach ($sem->marks as $marks)
                             <tr>
                             <td>{{$marks->subject->name}}</td>
                             <td>{{$marks->subject->code}}</td>
@@ -32,9 +32,9 @@
                             <td>{{$marks->task_2}}</td>
                             <td>{{$marks->mse_2}}</td>
                             <td>{{$marks->task_3}}</td>
-                            <td>{{$marks->cee}}</td>
+                            <td></td>
                             <td>{{$marks->see}}</td>
-                            <td>{{$marks->grade}}</td>
+                            <td></td>
                             </tr>
                         @endforeach
                         </tbody>
