@@ -32,9 +32,9 @@
                             <td>{{$marks->task_2}}</td>
                             <td>{{$marks->mse_2}}</td>
                             <td>{{$marks->task_3}}</td>
-                            <td></td>
+                            <td>{{$marks->toArray()["cee"]}}</td>
                             <td>{{$marks->see}}</td>
-                            <td></td>
+                            <td>{{$marks->toArray()["grade"]}}</td>
                             </tr>
                         @endforeach
                         </tbody>
