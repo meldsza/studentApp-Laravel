@@ -9,7 +9,7 @@ class Semister extends Model
     protected $fillable = [
         'sem_name','student_id','subject_id','is_complete','sgpa'
     ];
-    public function user()
+    public function student()
     {
         return $this->belongsTo('App\Student');
     }

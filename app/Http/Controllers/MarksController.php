@@ -26,14 +26,17 @@ class MarksController extends Controller
     {
         $user = Auth::user();
         $editable = ($user->is_teacher || $user->is_admin);
-        return view('marks',['user'=>Auth::user(),'sem'=>$sem->load('marks.subject'),'editable'=>$editable]);
+        $student = $sem->student;
+        return view('marks',['user'=>Auth::user(),'student'=>$student,'sem'=>$sem->load('marks.subject'),'editable'=>$editable]);
     }
 
     public function post(Request $request, Semister $marks)
     {
         $request->input('');
         $user = Auth::user();
-        if(!$user->is_teacher && !$user->is_admin) return error(404);
-        return view('marks',['user'=>Auth::user(),'sem'=>$sem->load('marks.subject'),'editable'=>true]);
+        $student = $sem->student;
+        if(!$user->is_teacher && !$user->is_admin)
+            return abort(404);
+        return view('marks',['user'=>Auth::user(),'student'=>$student,'sem'=>$sem->load('marks.subject'),'editable'=>true]);
     }
 }

@@ -11,12 +11,16 @@
 |
 */
 Route::model('user', App\User::class);
+Route::model('student', App\Student::class);
 Route::model('semister', App\Semister::class);
 
 Route::middleware('auth')->group( function () {
-    Route::redirect('/','/home');
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/profile/{user}','ProfileController@index');
+    Route::redirect('/','/student');
+    Route::redirect('/home','/student');
+    Route::get('/student', 'HomeController@home');
+    Route::get('/teacher', 'TeacherController@index');
+    Route::get('/student/{student}', 'HomeController@index');
+    Route::get('/profile/{user}','ProfileController@index')->name('profile');
     Route::get('/semister/{semister}', 'MarksController@get')->name('semister');
     Route::post('/semister/{semister}', 'MarksController@post');
 });

@@ -5,7 +5,18 @@
     <div class="row justify-content-center">
         <div>
             <div class="card">
-                <div class="card-header">{{$sem->sem_name}}</div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @include('studentinfo')
+            </div>
+        </div>
+        <br>
+            <div class="card">
+                <div class="card-header font-weight-bold">{{$sem->sem_name}}</div>
                     <div class="card-body table-responsive">
                     <table class="table table-hover">
                         <thead>
