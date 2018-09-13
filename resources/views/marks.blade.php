@@ -15,10 +15,16 @@
             </div>
         </div>
         <br>
+        <div class="card">
+                <div class="card-body">
+                    <a type="button" class="btn btn-primary btn-sm" href="{!! route('semister', ['semister' => $sem->id]) !!}/download">Download Marks</a>
+            </div>
+        </div>
+        <br>
             <div class="card">
                 <div class="card-header font-weight-bold">{{$sem->sem_name}}</div>
                     <div class="card-body table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover align-middle">
                         <thead>
                             <tr>
                             <th scope="col">Subject Name</th>

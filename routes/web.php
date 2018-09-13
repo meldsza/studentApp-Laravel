@@ -22,7 +22,9 @@ Route::middleware('auth')->group( function () {
     Route::get('/student/{student}', 'HomeController@index');
     Route::get('/profile/{user}','ProfileController@index')->name('profile');
     Route::get('/semister/{semister}', 'MarksController@get')->name('semister');
-    Route::post('/semister/{semister}', 'MarksController@post');
+    Route::post('/semister/{semister}/edit', 'MarksController@post');
+    Route::get('/semister/{semister}/edit', 'MarksController@edit');
+    Route::get('/semister/{semister}/download', 'MarksController@download');
 });
 
 Auth::routes();
